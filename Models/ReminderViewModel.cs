@@ -1,5 +1,5 @@
 ﻿namespace RingoMediaApp.Models;
-public class Reminder
+public class ReminderViewModel
 {
     public int Id { get; set; }
     public string Title { get; set; }

@@ -9,12 +9,12 @@ public class ApplicationDbContext : DbContext
         
     }
 
-    public DbSet<Department> Departments { get; set; }
-    public DbSet<Reminder> Reminders { get; set; }
+    public DbSet<DepartmentModel> Departments { get; set; }
+    public DbSet<ReminderModel> Reminders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Department>()
+        modelBuilder.Entity<DepartmentModel>()
             .HasOne(d => d.ParentDepartment)
             .WithMany(d => d.SubDepartments)
             .HasForeignKey(d => d.ParentId);
