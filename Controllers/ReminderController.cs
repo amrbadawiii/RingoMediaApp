@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RingoMediaApp.Database;
 using RingoMediaApp.Models;
@@ -46,7 +45,8 @@ public class ReminderController : Controller
             var reminder = new ReminderModel
             {
                 Title = model.Title,
-                DateTime = model.DateTime
+                DateTime = model.DateTime,
+                Email = model.Email,
             };
 
             _context.Add(reminder);
@@ -70,6 +70,7 @@ public class ReminderController : Controller
         {
             Id = reminder.Id,
             Title = reminder.Title,
+            Email = reminder.Email,
             DateTime = reminder.DateTime
         };
 
@@ -137,7 +138,6 @@ public class ReminderController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
-
     private bool ReminderExists(int id)
     {
         return _context.Reminders.Any(e => e.Id == id);

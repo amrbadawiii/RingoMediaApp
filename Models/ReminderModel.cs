@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace RingoMediaApp.Models;
+﻿namespace RingoMediaApp.Models;
 public class ReminderModel
 {
     public int Id { get; set; }
-    [Required]
-    public string Title { get; set; } = string.Empty;
-    [Required]
+    public string Title { get; set; }
     public DateTime DateTime { get; set; }
+    public string Email { get; set; }
+    public bool IsSent { get; set; }
 }
